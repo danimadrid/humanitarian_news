@@ -1,2 +1,8 @@
-# humanitarian_news
-Understanding Humanitarian News Across the Globe
+## Understanding Humanitarian News Across the Globe
+
+This repository includes all the replication code for the paper "Beyond “emergencies?" Reporting on humanitarian issues around the world", currently under review. The data files needed for the replication are available in [this data repository at the University of Edinburgh](https://datashare.ed.ac.uk/handle/10283/8739).
+
+##### Abstract
+Calhoun famously argued that journalists and aid-workers collectively reproduced an “emergency imaginary” via media coverage of humanitarian crises and fundraising appeals. Even though Calhoun first started writing about the humanitarian “emergency” two decades ago, it is still widely believed to be the dominant interpretative frame, shaping how humanitarianism is understood and organised globally. But no one has previously tested the supposed dominance of the emergency imaginary in media about “humanitarian” issues within a largescale, systematic study. Using an innovative combination of manual and computational approaches, we analyse a global corpus of over a million media texts, disseminated between 2010–2020. We find that the emergency imaginary is not actually a ‘Western’ phenomenon: instead, it dominates the coverage of humanitarian issues produced by a specific group of Anglophone countries. We also find that the emergency imaginary does not dominate the coverage of humanitarian issues world-wide. Media from other countries was far more likely to mention the word ‘humanitarian’, but tended to produce hybrid interpretative frames. These blended aspects of the emergency imaginary with national and regional perspectives, as well as linking humanitarian action to other areas of activity, such as conflict-resolution, development, and human rights. However, some of these hybrid frames were far less progressive than many critics of the emergency imaginary might assume.
+
+##### File structure
