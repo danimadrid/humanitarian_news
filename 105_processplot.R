@@ -42,9 +42,9 @@ subgraph cluster_2 {
         
         label = 'Clustering Countries'
         node[margin = 0.18]
-        cluster1 [label = 'Estimate ideal \n number of clusters', fillcolor = Beige]
+        cluster1 [label = 'Estimate ideal \n number of clusters\nwith NbClust', fillcolor = Beige]
         cluster2 [label = 'Use cosine similarities \n to cluster countries into \n k = 3', fillcolor = Beige]
-        cluster3 [label = 'Plot clusters on \n two-dimensional space \n using PCA', fillcolor = Beige]
+        cluster3 [label = 'Plot clusters on\ntwo-dimensional space \n using PCA', fillcolor = Beige]
 }  
 
 subgraph cluster_3 {
@@ -52,18 +52,31 @@ subgraph cluster_3 {
         style = rounded
         bgcolor = Linen
         
-        label = 'Qualitative Analysis'
+        label = 'Corpus-assisted\ndiscourse analysis'
         node[margin = 0.2]
         quali1 [label = 'Analysis of collocations\nand keywords within clusters', fillcolor = Beige]
         quali2 [label = 'Collocate and keyness\nsearches across clusters', fillcolor = Beige]
         quali3 [label = 'N-gram and keyword-in-context\n (KWIC) analyses', fillcolor = Beige]
-}  
+}
+
+subgraph cluster_4 {
+        graph[shape = rectangle]
+        style = rounded
+        bgcolor = Linen
+        
+        label = 'Document similarity analysis'
+        node[margin = 0.2]
+        sim1 [label = 'Split corpus between\ndigital and non digital\nsources', fillcolor = Beige]
+        sim2 [label = 'Compute cosine\nsimilarity between\ndocuments', fillcolor = Beige]
+        sim3 [label = 'Plot network of\ntext similarity between\ncountries and agencies', fillcolor = Beige]
+}
 
 # edge definitions with the node IDs
 
 data1 -> embed1 [ltail=cluster_0 lhead=cluster_1 ]
 embed1 -> cluster1 [ltail=cluster_1 lhead=cluster_2]
 cluster1 -> quali1 [ltail=cluster_2 lhead=cluster_3]
+quali1 -> sim1 [ltail=cluster_3 lhead=cluster_4]
 
 }")
 
