@@ -12,9 +12,7 @@ Scripts in this repository are organised by filename:
 
 For privacy reasons, some file paths have been anonymised in the replication scripts and replaced with XXXXXXXXXX. 
 
-If you have questions about the code or the dataset, feel free to contact the authors.
-
-**Script contributors**:  
+If you have questions about the code or the dataset, feel free to contact the script authors/contributors:
 - Christopher Barrie (analysis)  
 - Andrew Jones (data collection)  
 - Dani Madrid-Morales (data collection & analysis)
