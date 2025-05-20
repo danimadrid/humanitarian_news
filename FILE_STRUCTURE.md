@@ -87,6 +87,4 @@ humanitarian_news/
 │   └── toks_nodigital_us.RDS
 ```
 
-## ⚠️ Note on Omitted Files
-
-Files shown in ~~strikethrough~~ are **excluded** from the downloadable replication archive due to copyright or licensing restrictions. These include sensitive or proprietary datasets. For access, please contact the corresponding author.
+This file has been automatically generated using OpenAI's ChatGPT.
