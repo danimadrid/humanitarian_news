@@ -23,12 +23,12 @@ get_factiva_v1 <- function(filename){
            text = str_remove(text,
                              "[0-9]{1,2} (January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{4}"),
            pub.date = as.Date(parse_date_time(pub.date, "%e %B %Y", exact = TRUE)),
-           source = str_replace(filename, "[0-9]{2}.txt", ""),
+           source = str_replace(filename, "/XXXXXXXXXX", ""),
            source = str_replace(source, paste0(eval(pathfiles), "/"), ""),
            text = str_squish(text),
-           text = str_replace(text, "^.*?(?=Copyright|©|\\(c\\))", ""),
+           text = str_replace(text, "/XXXXXXXXXX", ""),
            country = str_extract(filename, "(?<=HumanitarianNewsData/)(.*?)(?=/)"),
-           country = str_replace(country, "_Factiva", "")) %>%
+           country = str_replace(country, "/XXXXXXXXXX", "")) %>%
     select(title,
            publish_date = pub.date,
            source,
@@ -36,189 +36,189 @@ get_factiva_v1 <- function(filename){
            text)
 }
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/AE_Factiva"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 AE <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/AT_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 AT <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/BG_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 BG <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/BY_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 BY <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/CA_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 CA <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/CZ_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 CZ <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/DE_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 DE <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/EE_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 EE <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/FR_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 FR <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/GB_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 GB <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows() %>%
   mutate(source = "Reuters")
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/GR_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 GR <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/HR_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 HR <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/IE_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 IE <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/IL_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 IL <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/IN_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 IN <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/JO_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 JO <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/KG_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 KG <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/KR_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 KR <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/KZ_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 KZ <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/LT_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 LT <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/LV_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 LV <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/NP_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 NP <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/QA_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 QA <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows() %>%
   mutate(source = "AlJazeera")
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/RO_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 RO <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/RU_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 RU <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/SK_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 SK <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/SV_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 SV <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/TM_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 TM <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/UA_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 UA <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/US_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 US <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
   bind_rows()
 
-pathfiles <- "/Volumes/LaCieOrange/HumanitarianNewsData/VN_Factiva/"
+pathfiles <- "/XXXXXXXXXX"
 list_of_files <- list.files(pathfiles,full.names = TRUE,pattern = "[0-9].txt")
 VN <- map(list_of_files, safely(get_factiva_v1)) %>%
   map("result") %>%
@@ -229,7 +229,7 @@ t <- factiva1 %>%
   group_by(country) %>%
   count(country)
 
-fwrite(factiva1, "/Volumes/LaCieOrange/HumanitarianNewsData/_Factiva/_factiva_merged1.csv",quote = TRUE, sep = "|")
+fwrite(factiva1, "/XXXXXXXXXX/_factiva_merged1.csv",quote = TRUE, sep = "|")
 
 
 ####### Merge files from Factiva 2 #######
@@ -269,7 +269,7 @@ get_factiva_v2 <- function(filename){
            text)
 }
 
-list_of_files <- list.files("/Volumes/LaCieOrange/HumanitarianNewsData/_Factiva", 
+list_of_files <- list.files("/XXXXXXXXXX", 
                             recursive = FALSE, 
                             full.names = TRUE, 
                             pattern = ".txt")
@@ -277,19 +277,19 @@ factiva2 <- map(list_of_files, safely(get_factiva_v2)) %>%
   map("result") %>%
   bind_rows()
 
-fwrite(factiva2, "/Volumes/LaCieOrange/HumanitarianNewsData/_Factiva/_factiva_merged2.csv",quote = TRUE, sep = "|")
+fwrite(factiva2, "/XXXXXXXXXX/_factiva_merged2.csv",quote = TRUE, sep = "|")
 
 ####### Merge files and export #######
 
-factiva1 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_Factiva/_factiva_merged1.csv")
-factiva2 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_Factiva/_factiva_merged2.csv")
+factiva1 <- fread("/XXXXXXXXXX/_factiva_merged1.csv")
+factiva2 <- fread("/XXXXXXXXXX/_factiva_merged2.csv")
 
 df_factiva <- rbind(factiva1, factiva2) 
 
 df <- df_factiva %>%
   mutate(web_url = " ",
          data_source = "FACTIVA",
-         id = paste0("FACTIVA",seq(1,length(df_factiva$title)))) %>%
+         id = paste0("/XXXXXXXXXX",seq(1,length(df_factiva$title)))) %>%
   select(title,
          publish_date,
          source,
@@ -315,4 +315,4 @@ df %<>%
          -new.country,
          -is.keep)
 
-fwrite(df, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Factiva.csv", quote = TRUE, sep = "|")
+fwrite(df, "/XXXXXXXXXX/_FinalData_Factiva.csv", quote = TRUE, sep = "|")

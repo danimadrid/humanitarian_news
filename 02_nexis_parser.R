@@ -3,7 +3,7 @@ p_load(stringr,textreadr,dplyr,magrittr,tidyverse,lubridate,furrr,data.table,tic
 plan(multisession(workers = 10))
 
 ###### Part A - Nexis Data ######
-list_countries <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/", 
+list_countries <- list.files(path = "/XXXXXXXXXX", 
                              pattern = "[A-Z]_Nexis",
                              recursive = FALSE, 
                              full.names = FALSE) %>%
@@ -288,7 +288,7 @@ get_lexis_articles_TW <- function(filename){
 
 ###### Data Countries from A to C ######
 tic()
-AE <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/AE_Nexis/",
+AE <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -299,13 +299,13 @@ toc()
 
 AE$source.country <- "AE"
 fwrite(AE,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/AE.csv",
+       file = "/XXXXXXXXXX/AE.csv",
        quote = TRUE,
        sep = "|")
 rm(AE)
 
 tic()
-AF <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/AF_Nexis/",
+AF <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -316,13 +316,13 @@ toc()
 
 AF$source.country <- "AF"
 fwrite(AF,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/AF.csv",
+       file = "/XXXXXXXXXX/AF.csv",
        quote = TRUE,
        sep = "|")
 rm(AF)
 
 tic()
-AM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/AM_Nexis/",
+AM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -333,13 +333,13 @@ toc()
 
 AM$source.country <- "AM"
 fwrite(AM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/AM.csv",
+       file = "/XXXXXXXXXX/AM.csv",
        quote = TRUE,
        sep = "|")
 rm(AM)
 
 tic()
-AO <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/AO_Nexis/",
+AO <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -350,13 +350,13 @@ toc()
 
 AO$source.country <- "AO"
 fwrite(AO,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/AO.csv",
+       file = "/XXXXXXXXXX/AO.csv",
        quote = TRUE,
        sep = "|")
 rm(AO)
 
 tic()
-AU <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/AU_Nexis/",
+AU <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -367,13 +367,13 @@ toc()
 
 AU$source.country <- "AU"
 fwrite(AU,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/AU.csv",
+       file = "/XXXXXXXXXX/AU.csv",
        quote = TRUE,
        sep = "|")
 rm(AU)
 
 tic()
-BB <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/BB_Nexis/",
+BB <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -384,13 +384,13 @@ toc()
 
 BB$source.country <- "BB"
 fwrite(BB,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/BB.csv",
+       file = "/XXXXXXXXXX/BB.csv",
        quote = TRUE,
        sep = "|")
 rm(BB)
 
 tic()
-BD <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/BD_Nexis/",
+BD <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -401,13 +401,13 @@ toc()
 
 BD$source.country <- "BD"
 fwrite(BD,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/BD.csv",
+       file = "/XXXXXXXXXX/BD.csv",
        quote = TRUE,
        sep = "|")
 rm(BD)
 
 tic()
-BH <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/BH_Nexis/",
+BH <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -418,13 +418,13 @@ toc()
 
 BH$source.country <- "BH"
 fwrite(BH,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/BH.csv",
+       file = "/XXXXXXXXXX/BH.csv",
        quote = TRUE,
        sep = "|")
 rm(BH)
 
 tic()
-BW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/BW_Nexis/",
+BW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -435,13 +435,13 @@ toc()
 
 BW$source.country <- "BW"
 fwrite(BW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/BW.csv",
+       file = "/XXXXXXXXXX/BW.csv",
        quote = TRUE,
        sep = "|")
 rm(BW)
 
 tic()
-CA <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/CA_Nexis/",
+CA <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -452,13 +452,13 @@ toc()
 
 CA$source.country <- "CA"
 fwrite(CA,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/CA.csv",
+       file = "/XXXXXXXXXX/CA.csv",
        quote = TRUE,
        sep = "|")
 rm(CA)
 
 tic()
-CN <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/CN_Nexis/",
+CN <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -469,7 +469,7 @@ toc()
 
 CN$source.country <- "CN"
 fwrite(CN,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/CN.csv",
+       file = "/XXXXXXXXXX/CN.csv",
        quote = TRUE,
        sep = "|")
 rm(CN)
@@ -478,7 +478,7 @@ rm(CN)
 
 ###### Data Countries from D to H ######
 tic()
-DE <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/DE_Nexis/",
+DE <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -489,13 +489,13 @@ toc()
 
 DE$source.country <- "DE"
 fwrite(DE,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/DE.csv",
+       file = "/XXXXXXXXXX/DE.csv",
        quote = TRUE,
        sep = "|")
 rm(DE)
 
 tic()
-EG <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/EG_Nexis/",
+EG <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -506,13 +506,13 @@ toc()
 
 EG$source.country <- "EG"
 fwrite(EG,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/EG.csv",
+       file = "/XXXXXXXXXX/EG.csv",
        quote = TRUE,
        sep = "|")
 rm(EG)
 
 tic()
-EQ <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/EQ_Nexis/",
+EQ <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -523,13 +523,13 @@ toc()
 
 EQ$source.country <- "EQ"
 fwrite(EQ,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/EQ.csv",
+       file = "/XXXXXXXXXX/EQ.csv",
        quote = TRUE,
        sep = "|")
 rm(EQ)
 
 tic()
-ES <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ES_Nexis/",
+ES <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -540,13 +540,13 @@ toc()
 
 ES$source.country <- "ES"
 fwrite(ES,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ES.csv",
+       file = "/XXXXXXXXXX/ES.csv",
        quote = TRUE,
        sep = "|")
 rm(ES)
 
 tic()
-ET <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ET_Nexis/",
+ET <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -557,13 +557,13 @@ toc()
 
 ET$source.country <- "ET"
 fwrite(ET,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ET.csv",
+       file = "/XXXXXXXXXX/ET.csv",
        quote = TRUE,
        sep = "|")
 rm(ET)
 
 tic()
-FR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/FR_Nexis/",
+FR <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -574,13 +574,13 @@ toc()
 
 FR$source.country <- "FR"
 fwrite(FR,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/FR.csv",
+       file = "/XXXXXXXXXX/FR.csv",
        quote = TRUE,
        sep = "|")
 rm(FR)
 
 tic()
-GB <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/GB_Nexis/",
+GB <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -591,13 +591,13 @@ toc()
 
 GB$source.country <- "GB"
 fwrite(GB,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/GB.csv",
+       file = "/XXXXXXXXXX/GB.csv",
        quote = TRUE,
        sep = "|")
 rm(GB)
 
 tic()
-GH <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/GH_Nexis/",
+GH <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -608,13 +608,13 @@ toc()
 
 GH$source.country <- "GH"
 fwrite(GH,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/GH.csv",
+       file = "/XXXXXXXXXX/GH.csv",
        quote = TRUE,
        sep = "|")
 rm(GH)
 
 tic()
-GM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/GM_Nexis/",
+GM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -625,13 +625,13 @@ toc()
 
 GM$source.country <- "GM"
 fwrite(GM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/GM.csv",
+       file = "/XXXXXXXXXX/GM.csv",
        quote = TRUE,
        sep = "|")
 rm(GM)
 
 tic()
-HK <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/HK_Nexis/",
+HK <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -642,14 +642,14 @@ toc()
 
 HK$source.country <- "HK"
 fwrite(HK,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/HK.csv",
+       file = "/XXXXXXXXXX/HK.csv",
        quote = TRUE,
        sep = "|")
 rm(HK)
 
 ###### Data Countries from I to K ######
 tic()
-ID <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ID_Nexis/",
+ID <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -660,13 +660,13 @@ toc()
 
 ID$source.country <- "ID"
 fwrite(ID,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ID.csv",
+       file = "/XXXXXXXXXX/ID.csv",
        quote = TRUE,
        sep = "|")
 rm(ID)
 
 tic()
-IE <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IE_Nexis/",
+IE <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -677,13 +677,13 @@ toc()
 
 IE$source.country <- "IE"
 fwrite(IE,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IE.csv",
+       file = "/XXXXXXXXXX/IE.csv",
        quote = TRUE,
        sep = "|")
 rm(IE)
 
 tic()
-IL <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IL_Nexis/",
+IL <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -694,13 +694,13 @@ toc()
 
 IL$source.country <- "IL"
 fwrite(IL,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IL.csv",
+       file = "/XXXXXXXXXX/IL.csv",
        quote = TRUE,
        sep = "|")
 rm(IL)
 
 tic()
-IN <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IN_Nexis/",
+IN <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -711,13 +711,13 @@ toc()
 
 IN$source.country <- "IN"
 fwrite(IN,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IN.csv",
+       file = "/XXXXXXXXXX/IN.csv",
        quote = TRUE,
        sep = "|")
 rm(IN)
 
 tic()
-IQ <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IQ_Nexis/",
+IQ <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -728,13 +728,13 @@ toc()
 
 IQ$source.country <- "IQ"
 fwrite(IQ,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IQ.csv",
+       file = "/XXXXXXXXXX/IQ.csv",
        quote = TRUE,
        sep = "|")
 rm(IQ)
 
 tic()
-IR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IR_Nexis/",
+IR <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE, pattern = ".rtf") %>%
@@ -742,7 +742,7 @@ IR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IR_Nexis/",
   map("result") %>%
   bind_rows()
 
-IR2 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IR_Nexis/",
+IR2 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE, pattern = ".pdf")
@@ -757,13 +757,13 @@ IR <- rbind(IR, IR2)
 
 IR$source.country <- "IR"
 fwrite(IR,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IR.csv",
+       file = "/XXXXXXXXXX/IR.csv",
        quote = TRUE,
        sep = "|")
 rm(IR,IR2)
 
 tic()
-IT <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/IT_Nexis/",
+IT <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -774,13 +774,13 @@ toc()
 
 IT$source.country <- "IT"
 fwrite(IT,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/IT.csv",
+       file = "/XXXXXXXXXX/IT.csv",
        quote = TRUE,
        sep = "|")
 rm(IT)
 
 tic()
-JO <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/JO_Nexis/",
+JO <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -791,13 +791,13 @@ toc()
 
 JO$source.country <- "JO"
 fwrite(JO,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/JO.csv",
+       file = "/XXXXXXXXXX/JO.csv",
        quote = TRUE,
        sep = "|")
 rm(JO)
 
 tic()
-JP <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/JP_Nexis/",
+JP <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -808,13 +808,13 @@ toc()
 
 JP$source.country <- "JP"
 fwrite(JP,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/JP.csv",
+       file = "/XXXXXXXXXX/JP.csv",
        quote = TRUE,
        sep = "|")
 rm(JP)
 
 tic()
-KE <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/KE_Nexis/",
+KE <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -825,13 +825,13 @@ toc()
 
 KE$source.country <- "KE"
 fwrite(KE,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/KE.csv",
+       file = "/XXXXXXXXXX/KE.csv",
        quote = TRUE,
        sep = "|")
 rm(KE)
 
 tic()
-KG <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/KG_Nexis/",
+KG <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -842,13 +842,13 @@ toc()
 
 KG$source.country <- "KG"
 fwrite(KG,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/KG.csv",
+       file = "/XXXXXXXXXX/KG.csv",
        quote = TRUE,
        sep = "|")
 rm(KG)
 
 tic()
-KR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/KR_Nexis/",
+KR <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -859,13 +859,13 @@ toc()
 
 KR$source.country <- "KR"
 fwrite(KR,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/KR.csv",
+       file = "/XXXXXXXXXX/KR.csv",
        quote = TRUE,
        sep = "|")
 rm(KR)
 
 tic()
-KW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/KW_Nexis/",
+KW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -876,14 +876,14 @@ toc()
 
 KW$source.country <- "KW"
 fwrite(KW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/KW.csv",
+       file = "/XXXXXXXXXX/KW.csv",
        quote = TRUE,
        sep = "|")
 rm(KW)
 
 ###### Data Countries from L to O ######
 tic()
-LK <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/LK_Nexis/",
+LK <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -894,14 +894,14 @@ toc()
 
 LK$source.country <- "LK"
 fwrite(LK,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/LK.csv",
+       file = "/XXXXXXXXXX/LK.csv",
        quote = TRUE,
        sep = "|")
 rm(LK)
 
 
 tic()
-LR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/LR_Nexis/",
+LR <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -912,13 +912,13 @@ toc()
 
 LR$source.country <- "LR"
 fwrite(LR,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/LR.csv",
+       file = "/XXXXXXXXXX/LR.csv",
        quote = TRUE,
        sep = "|")
 rm(LR)
 
 tic()
-LY <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/LY_Nexis/",
+LY <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -929,13 +929,13 @@ toc()
 
 LY$source.country <- "LY"
 fwrite(LY,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/LY.csv",
+       file = "/XXXXXXXXXX/LY.csv",
        quote = TRUE,
        sep = "|")
 rm(LY)
 
 tic()
-MM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/MM_Nexis/",
+MM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -946,13 +946,13 @@ toc()
 
 MM$source.country <- "MM"
 fwrite(MM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/MM.csv",
+       file = "/XXXXXXXXXX/MM.csv",
        quote = TRUE,
        sep = "|")
 rm(MM)
 
 tic()
-MT <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/MT_Nexis/",
+MT <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -963,13 +963,13 @@ toc()
 
 MT$source.country <- "MT"
 fwrite(MT,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/MT.csv",
+       file = "/XXXXXXXXXX/MT.csv",
        quote = TRUE,
        sep = "|")
 rm(MT)
 
 tic()
-MW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/MW_Nexis/",
+MW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -980,13 +980,13 @@ toc()
 
 MW$source.country <- "MW"
 fwrite(MW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/MW.csv",
+       file = "/XXXXXXXXXX/MW.csv",
        quote = TRUE,
        sep = "|")
 rm(MW)
 
 tic()
-MY <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/MY_Nexis/",
+MY <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -997,13 +997,13 @@ toc()
 
 MY$source.country <- "MY"
 fwrite(MY,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/MY.csv",
+       file = "/XXXXXXXXXX/MY.csv",
        quote = TRUE,
        sep = "|")
 rm(MY)
 
 tic()
-NB <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/NB_Nexis/",
+NB <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1014,13 +1014,13 @@ toc()
 
 NB$source.country <- "NB"
 fwrite(NB,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/NB.csv",
+       file = "/XXXXXXXXXX/NB.csv",
        quote = TRUE,
        sep = "|")
 rm(NB)
 
 tic()
-NG <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/NG_Nexis/",
+NG <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1031,13 +1031,13 @@ toc()
 
 NG$source.country <- "NG"
 fwrite(NG,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/NG.csv",
+       file = "/XXXXXXXXXX/NG.csv",
        quote = TRUE,
        sep = "|")
 rm(NG)
 
 tic()
-NP <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/NP_Nexis/",
+NP <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1048,13 +1048,13 @@ toc()
 
 NP$source.country <- "NP"
 fwrite(NP,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/NP.csv",
+       file = "/XXXXXXXXXX/NP.csv",
        quote = TRUE,
        sep = "|")
 rm(NP)
 
 tic()
-NZ <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/NZ_Nexis/",
+NZ <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE, 
@@ -1067,13 +1067,13 @@ toc()
 
 NZ$source.country <- "NZ"
 fwrite(NZ,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/NZ.csv",
+       file = "/XXXXXXXXXX/NZ.csv",
        quote = TRUE,
        sep = "|")
 rm(NZ)
 
 tic()
-OM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/OM_Nexis/",
+OM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1084,13 +1084,13 @@ toc()
 
 OM$source.country <- "OM"
 fwrite(OM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/OM.csv",
+       file = "/XXXXXXXXXX/OM.csv",
        quote = TRUE,
        sep = "|")
 rm(OM)
 
 ###### Data Countries from P to S ######
-PH <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/PH_Nexis/",
+PH <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1101,13 +1101,13 @@ toc()
 
 PH$source.country <- "PH"
 fwrite(PH,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/PH.csv",
+       file = "/XXXXXXXXXX/PH.csv",
        quote = TRUE,
        sep = "|")
 rm(PH)
 
 tic()
-PK <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/PK_Nexis/",
+PK <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1118,13 +1118,13 @@ toc()
 
 PK$source.country <- "PK"
 fwrite(PK,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/PK.csv",
+       file = "/XXXXXXXXXX/PK.csv",
        quote = TRUE,
        sep = "|")
 rm(PK)
 
 tic()
-PS <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/PS_Nexis/",
+PS <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1135,13 +1135,13 @@ toc()
 
 PS$source.country <- "PS"
 fwrite(PS,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/PS.csv",
+       file = "/XXXXXXXXXX/PS.csv",
        quote = TRUE,
        sep = "|")
 rm(PS)
 
 tic()
-QA <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/QA_Nexis/",
+QA <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1152,13 +1152,13 @@ toc()
 
 QA$source.country <- "QA"
 fwrite(QA,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/QA.csv",
+       file = "/XXXXXXXXXX/QA.csv",
        quote = TRUE,
        sep = "|")
 rm(QA)
 
 tic()
-RU <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/RU_Nexis/",
+RU <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1169,13 +1169,13 @@ toc()
 
 RU$source.country <- "RU"
 fwrite(RU,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/RU.csv",
+       file = "/XXXXXXXXXX/RU.csv",
        quote = TRUE,
        sep = "|")
 rm(RU)
 
 tic()
-RW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/RW_Nexis/",
+RW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1186,13 +1186,13 @@ toc()
 
 RW$source.country <- "RW"
 fwrite(RW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/RW.csv",
+       file = "/XXXXXXXXXX/RW.csv",
        quote = TRUE,
        sep = "|")
 rm(RW)
 
 tic()
-SA <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/SA_Nexis/",
+SA <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1203,13 +1203,13 @@ toc()
 
 SA$source.country <- "SA"
 fwrite(SA,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/SA.csv",
+       file = "/XXXXXXXXXX/SA.csv",
        quote = TRUE,
        sep = "|")
 rm(SA)
 
 tic()
-SG <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/SG_Nexis/",
+SG <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1220,13 +1220,13 @@ toc()
 
 SG$source.country <- "SG"
 fwrite(SG,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/SG.csv",
+       file = "/XXXXXXXXXX/SG.csv",
        quote = TRUE,
        sep = "|")
 rm(SG)
 
 tic()
-SO <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/SO_Nexis/",
+SO <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1237,13 +1237,13 @@ toc()
 
 SO$source.country <- "SO"
 fwrite(SO,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/SO.csv",
+       file = "/XXXXXXXXXX/SO.csv",
        quote = TRUE,
        sep = "|")
 rm(SO)
 
 tic()
-SS <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/SS_Nexis/",
+SS <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1254,13 +1254,13 @@ toc()
 
 SS$source.country <- "SS"
 fwrite(SS,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/SS.csv",
+       file = "/XXXXXXXXXX/SS.csv",
        quote = TRUE,
        sep = "|")
 rm(SS)
 
 tic()
-SY <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/SY_Nexis/",
+SY <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1271,13 +1271,13 @@ toc()
 
 SY$source.country <- "SY"
 fwrite(SY,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/SY.csv",
+       file = "/XXXXXXXXXX/SY.csv",
        quote = TRUE,
        sep = "|")
 rm(SY)
 
 ###### Data Countries from T to Z ######
-TH <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/TH_Nexis/",
+TH <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1288,13 +1288,13 @@ toc()
 
 TH$source.country <- "TH"
 fwrite(TH,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/TH.csv",
+       file = "/XXXXXXXXXX/TH.csv",
        quote = TRUE,
        sep = "|")
 rm(TH)
 
 tic()
-TM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/TM_Nexis/",
+TM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1305,13 +1305,13 @@ toc()
 
 TM$source.country <- "TM"
 fwrite(TM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/TM.csv",
+       file = "/XXXXXXXXXX/TM.csv",
        quote = TRUE,
        sep = "|")
 rm(TM)
 
 tic()
-TR <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/TR_Nexis/",
+TR <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1322,13 +1322,13 @@ toc()
 
 TR$source.country <- "TR"
 fwrite(TR,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/TR.csv",
+       file = "/XXXXXXXXXX/TR.csv",
        quote = TRUE,
        sep = "|")
 rm(TR)
 
 tic()
-TW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/TW_Nexis/",
+TW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1340,13 +1340,13 @@ toc()
 TW$source.country <- "TW"
 TW$pub.type <- "Newspaper"
 fwrite(TW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/TW.csv",
+       file = "/XXXXXXXXXX/TW.csv",
        quote = TRUE,
        sep = "|")
 rm(TW)
 
 tic()
-UA <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/UA_Nexis/",
+UA <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1357,13 +1357,13 @@ toc()
 
 UA$source.country <- "UA"
 fwrite(UA,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/UA.csv",
+       file = "/XXXXXXXXXX/UA.csv",
        quote = TRUE,
        sep = "|")
 rm(UA)
 
 tic()
-UG <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/UG_Nexis/",
+UG <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1374,7 +1374,7 @@ toc()
 
 UG$source.country <- "UG"
 fwrite(UG,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/UG.csv",
+       file = "/XXXXXXXXXX/UG.csv",
        quote = TRUE,
        sep = "|")
 rm(UG)
@@ -1382,7 +1382,7 @@ rm(UG)
 
 
 tic()
-UZ <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/UZ_Nexis/",
+UZ <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1393,13 +1393,13 @@ toc()
 
 UZ$source.country <- "UZ"
 fwrite(UZ,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/UZ.csv",
+       file = "/XXXXXXXXXX/UZ.csv",
        quote = TRUE,
        sep = "|")
 rm(UZ)
 
 tic()
-YE <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/YE_Nexis/",
+YE <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1410,13 +1410,13 @@ toc()
 
 YE$source.country <- "YE"
 fwrite(YE,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/YE.csv",
+       file = "/XXXXXXXXXX/YE.csv",
        quote = TRUE,
        sep = "|")
 rm(YE)
 
 tic()
-ZA <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ZA_Nexis/",
+ZA <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1427,13 +1427,13 @@ toc()
 
 ZA$source.country <- "ZA"
 fwrite(ZA,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ZA.csv",
+       file = "/XXXXXXXXXX/ZA.csv",
        quote = TRUE,
        sep = "|")
 rm(ZA)
 
 tic()
-ZM <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ZM_Nexis/",
+ZM <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1444,13 +1444,13 @@ toc()
 
 ZM$source.country <- "ZM"
 fwrite(ZM,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ZM.csv",
+       file = "/XXXXXXXXXX/ZM.csv",
        quote = TRUE,
        sep = "|")
 rm(ZM)
 
 tic()
-ZW <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/ZW_Nexis/",
+ZW <- list.files(path = "/XXXXXXXXXX",
                  recursive = TRUE, 
                  full.names = TRUE,
                  include.dirs = FALSE) %>%
@@ -1461,14 +1461,14 @@ toc()
 
 ZW$source.country <- "ZW"
 fwrite(ZW,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/ZW.csv",
+       file = "/XXXXXXXXXX/ZW.csv",
        quote = TRUE,
        sep = "|")
 rm(ZW)
 ###### Data US ######
 
 tic()
-US1 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/ABCNews/",
+US1 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1476,7 +1476,7 @@ US1 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/ABC
   map("result") %>%
   bind_rows()
 
-US2 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/AtlanticCBS/",
+US2 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1484,7 +1484,7 @@ US2 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/Atl
   map("result") %>%
   bind_rows()
 
-US3 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/CNN/",
+US3 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1492,7 +1492,7 @@ US3 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/CNN
   map("result") %>%
   bind_rows()
 
-US4 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/MSNBC/",
+US4 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1500,7 +1500,7 @@ US4 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/MSN
   map("result") %>%
   bind_rows()
 
-US5 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/Slate+/",
+US5 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1508,7 +1508,7 @@ US5 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/Sla
   map("result") %>%
   bind_rows()
 
-US6 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/UPI/",
+US6 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1516,7 +1516,7 @@ US6 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/UPI
   map("result") %>%
   bind_rows()
 
-US7 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/AP/",
+US7 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1524,7 +1524,7 @@ US7 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/AP/
   map("result") %>%
   bind_rows()
 
-US8 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/Multiple/",
+US8 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1532,7 +1532,7 @@ US8 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/Mul
   map("result") %>%
   bind_rows()
 
-US9 <- list.files(path = "/Volumes/LaCieOrange/HumanitarianNewsData/US_Nexis/VOA/",
+US9 <- list.files(path = "/XXXXXXXXXX",
                   recursive = TRUE, 
                   full.names = TRUE,
                   include.dirs = FALSE) %>%
@@ -1546,14 +1546,14 @@ US <- rbind(US1, US2, US3, US4, US5, US6, US7, US8, US9)
 
 US$source.country <- "US"
 fwrite(US,
-       file = "/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis/US.csv",
+       file = "/XXXXXXXXXX/US.csv",
        quote = TRUE,
        sep = "|")
 
 
 ###### Merge all files Nexis ######
 
-df_nexis <- list.files("/Volumes/LaCieOrange/HumanitarianNewsData/_Nexis",
+df_nexis <- list.files("/XXXXXXXXXX",
                        full.names = TRUE) %>%
   map(function(x){
     temp <- fread(x) %>%
@@ -1584,7 +1584,7 @@ t <- df_nexis %>%
 df <- df_nexis %>%
   mutate(web_url = " ",
          data_source = "NEXIS",
-         id = paste0("NEXIS",seq(1,length(df_nexis$title)))) %>%
+         id = paste0("/XXXXXXXXXX",seq(1,length(df_nexis$title)))) %>%
   select(title,
          publish_date = pub.date,
          source = medium,
@@ -1595,6 +1595,6 @@ df <- df_nexis %>%
          id)
 
 fwrite(df, 
-       "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_NEXIS.csv",
+       "/XXXXXXXXXX/_FinalData_NEXIS.csv",
        quote = TRUE,
        sep = "|")

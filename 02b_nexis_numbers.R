@@ -13,7 +13,7 @@ pubs_scrape_clean <- function (x) {
   
   y_2 <- y[, c(5,4)]  ## Reorder the dataframe
   
-  write.csv(y_2, file = paste0("clean_", x), row.names = F)
+  write.csv(y_2, file = paste0("/XXXXXXXXXX", x), row.names = F)
 }
 
 sapply(dir(), pubs_scrape_clean)
@@ -41,7 +41,7 @@ create_all_files <- function (x) {
   totals_file <- cbind.data.frame(unique(all_file$publication), n)
   colnames(totals_file) <- c('Publication', 'n')
   
-  write.csv(totals_file, file = paste0("totals_", x), row.names = F)
+  write.csv(totals_file, file = paste0("/XXXXXXXXXX", x), row.names = F)
   print(paste0(x, " ", "is done", sep = " "))
 }
 lapply(dir()[3:5], create_all_files)

@@ -1,5 +1,5 @@
-#setwd("~/Documents/Humanitrain Corpus RA - Kate & Dani/Google News")
-setwd("~/Documents/Humanitrain Corpus RA - Kate & Dani/Google News/Scraped files")
+#setwd("/XXXXXXXXXX")
+setwd("/XXXXXXXXXX")
 
 library(httr)
 library(jsonlite)
@@ -20,7 +20,7 @@ google_news_scrape <- function(x, y, z) {
                             from = x, to = y)
   
   res_df <- res[[2]]
-  #write.csv(res_df, file = paste0("google_", y, "_", x, ".csv"))
+  #write.csv(res_df, file = paste0("/XXXXXXXXXX", y, "_", x, ".csv"))
   write.xlsx(res_df, paste(z, ".xlsx", sep = ""))
   print(x)
   return(res_df)
@@ -29,10 +29,10 @@ google_news_scrape <- function(x, y, z) {
 ### Construct date format
 # From and to dates fro the function
 z <- 1:12
-from2017 <- paste0("2017", "-", z, "-", "01", sep = "")
-from2018 <- paste0("2018", "-", z, "-", "01", sep = "")
-from2019 <- paste0("2019", "-", z, "-", "01", sep = "")
-from2020 <- paste0("2020", "-", z, "-", "01", sep = "")
+from2017 <- paste0("/XXXXXXXXXX", "-", z, "-", "01", sep = "")
+from2018 <- paste0("/XXXXXXXXXX", "-", z, "-", "01", sep = "")
+from2019 <- paste0("/XXXXXXXXXX", "-", z, "-", "01", sep = "")
+from2020 <- paste0("/XXXXXXXXXX", "-", z, "-", "01", sep = "")
 
 from_all <- as.Date(c(from2017, from2018, from2019, from2020))
 to_all <- from_all - 1
@@ -84,7 +84,6 @@ unique_locs <- match(unique(all_df$url), all_df$url) ## match returns the first 
 all_df <- all_df[unique_locs, ] ## Create df from unique URL cases
 
 write.csv(all_df, "google_news_all.csv", row.names = F)
-
 
 
 

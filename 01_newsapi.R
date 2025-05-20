@@ -20,15 +20,15 @@ get_news_api_all <- function(date_from, date_to){
 }
 
 ###### Step 2 - Load Google News API data ######
-setwd("/Volumes/LaCieOrange/HumanitarianNewsData/")
+setwd("/XXXXXXXXXX")
 
-df_googleapi <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/GoogleAPI_all_human.csv")
+df_googleapi <- fread("/XXXXXXXXXX/GoogleAPI_all_human.csv")
 df_googleapi$clean_urls <- str_replace(df_googleapi$url, "(.*?//.*?)/.*", "\\1")
 df_googleapi$clean_urls <- str_replace(df_googleapi$clean_urls, "https://www3.|http://www.|https://www.|https://|http://","")
 
-list_all_sources_urls <- readLines("/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/Humanitarianism&COVID19/list_ALL_sources_URLs.txt",warn = FALSE)
-list_all_sources_urls <- str_replace(list_all_sources_urls, "(.*?//.*?)/.*", "\\1")
-list_all_sources_urls <- str_replace(list_all_sources_urls, "https://www3.|http://www.|https://www.|https://|http://","")
+list_all_sources_urls <- readLines("/XXXXXXXXXX",warn = FALSE)
+list_all_sources_urls <- str_replace(list_all_sources_urls, "/XXXXXXXXXX", "\\1")
+list_all_sources_urls <- str_replace(list_all_sources_urls, "/XXXXXXXXXX","")
 list_all_sources_urls <- unique(list_all_sources_urls)
 list_all_sources_urls <- tibble(clean_urls = list_all_sources_urls)
 
@@ -51,7 +51,7 @@ list_links3g <- df_googleapi_missing$url[split_links_google == 3]
 list_links4g <- df_googleapi_missing$url[split_links_google == 4]
 list_links5g <- df_googleapi_missing$url[split_links_google == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 
 get_text_from_py <- function(url_link){
   
@@ -234,11 +234,11 @@ df %<>%
   distinct(web_url, .keep_all = TRUE) %>%
   tibble() %>%
   mutate(data_source = "google_news",
-         id = paste0("GNAPI",seq(1,length(df$web_url))))
+         id = paste0("/XXXXXXXXXX",seq(1,length(df$web_url))))
 
 df$publish_date <- as.Date(df$publish_date)
 
-sources <- readLines("~/Dropbox/Academe/Conferences&Papers/Humanitarianism&COVID19/list_ALL_sources.txt", warn = F) %>%
+sources <- readLines("/XXXXXXXXXX", warn = F) %>%
   map(function(x){str_extract(df$web_url, x)})
 sources <- coalesce(!!!sources) %>%
   tibble(link = .)
@@ -246,6 +246,6 @@ sources <- coalesce(!!!sources) %>%
 df$source <- sources$link
 
 fwrite(df, 
-       "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_GoogleAPI.csv",
+       "/XXXXXXXXXX/_FinalData_GoogleAPI.csv",
        quote = TRUE,
        sep = "|")

@@ -2,13 +2,13 @@ library(pacman)
 p_load(data.table, reader, tidyverse, magrittr, furrr, future,
        rvest, httr, tictoc, reticulate, lubridate, R.utils)
 
-Sys.setenv(RETICULATE_PYTHON = "~/Dropbox/Academe/Conferences&Papers/AfricaNews/python/bin/python")
+Sys.setenv(RETICULATE_PYTHON = "/XXXXXXXXXX/python")
 reticulate::py_config()
 plan(multisession(workers = 10))
 
 ###### Step 1 - Load GDELT data, merge files and keep matching source ######
 
-setwd("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/")
+setwd("/XXXXXXXXXX")
 gdelt_files1 <- fread("GDELT_ThemesHUMANITARIAN_2016010120200531/bq-results-20200601-222427-s0l8og73v3wh.csv")
 gdelt_files2 <- fread("GDELT_ThemesHUMANITARIAN_2020060120200808/bq-results-20200809-221041-ct3f03vtvpnm.csv")
 gdelt_files3 <- fread("GDELT_V2ThemesHUMANITARIAN_2016010120200531/bq-results-20200601-221935-egx6wq9c9lwd.csv")
@@ -24,8 +24,8 @@ rm(gdelt_files1,gdelt_files2,gdelt_files3,gdelt_files4)
 gdelt_files %<>%
   filter(TranslationInfo == "")
 
-setwd("~/Dropbox/Academe/Conferences&Papers/Humanitarianism&COVID19")
-sources_ls <- readLines("list_ALL_sources2.txt", warn = F) %>%
+setwd("/XXXXXXXXXX")
+sources_ls <- readLines("/XXXXXXXXXX", warn = F) %>%
   map(function(x){str_detect(gdelt_files$DocumentIdentifier, x)})
 sources <- sources_ls %>%
   bind_cols()
@@ -34,9 +34,9 @@ sources_total <- rowSums(sources)
 gdelt_files %<>%
   mutate(flag = sources_total)
 
-fwrite(gdelt_files, "/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/GDELT_filtered.csv")
+fwrite(gdelt_files, "/XXXXXXXXXX/GDELT_filtered.csv")
 
-gdelt_files <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/GDELT_filtered.csv")
+gdelt_files <- fread("/XXXXXXXXXX/GDELT_filtered.csv")
 gdelt_files %<>%
   filter(flag > 0) %>%
   select(-flag,
@@ -47,9 +47,9 @@ rm(sources,
    sources_total)
 
 ###### Step 2 - Remove duplicates from scraper and SerpAPI ######
-df_g <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_GoogleAPI.csv") %>%
+df_g <- fread("/XXXXXXXXXX/_FinalData_GoogleAPI.csv") %>%
   select(web_url)
-df_s <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_serpAPI.csv") %>%
+df_s <- fread("/XXXXXXXXXX/_FinalData_serpAPI.csv") %>%
   select(web_url) %>%
   rbind(df_g)
 rm(df_g)
@@ -106,7 +106,7 @@ list_urls3 <- list_links1[splitting_urls == 3]
 list_urls4 <- list_links1[splitting_urls == 4]
 list_urls5 <- list_links1[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -297,10 +297,10 @@ scraped_text_missing <- tibble(web_url = list_links1) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -331,7 +331,7 @@ list_urls3 <- list_links3[splitting_urls == 3]
 list_urls4 <- list_links3[splitting_urls == 4]
 list_urls5 <- list_links3[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -522,10 +522,10 @@ scraped_text_missing <- tibble(web_url = list_links3) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -556,7 +556,7 @@ list_urls3 <- list_links5[splitting_urls == 3]
 list_urls4 <- list_links5[splitting_urls == 4]
 list_urls5 <- list_links5[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -747,10 +747,10 @@ scraped_text_missing <- tibble(web_url = list_links5) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -781,7 +781,7 @@ list_urls3 <- list_links7[splitting_urls == 3]
 list_urls4 <- list_links7[splitting_urls == 4]
 list_urls5 <- list_links7[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -972,10 +972,10 @@ scraped_text_missing <- tibble(web_url = list_links7) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -1006,7 +1006,7 @@ list_urls3 <- list_links9[splitting_urls == 3]
 list_urls4 <- list_links9[splitting_urls == 4]
 list_urls5 <- list_links9[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -1197,10 +1197,10 @@ scraped_text_missing <- tibble(web_url = list_links9) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -1247,7 +1247,7 @@ list_urls3 <- list_links1[splitting_urls == 3]
 list_urls4 <- list_links1[splitting_urls == 4]
 list_urls5 <- list_links1[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -1438,10 +1438,10 @@ scraped_text_missing <- tibble(web_url = list_links1) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -1472,7 +1472,7 @@ list_urls3 <- list_links3[splitting_urls == 3]
 list_urls4 <- list_links3[splitting_urls == 4]
 list_urls5 <- list_links3[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -1663,10 +1663,10 @@ scraped_text_missing <- tibble(web_url = list_links3) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -1697,7 +1697,7 @@ list_urls3 <- list_links5[splitting_urls == 3]
 list_urls4 <- list_links5[splitting_urls == 4]
 list_urls5 <- list_links5[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -1888,10 +1888,10 @@ scraped_text_missing <- tibble(web_url = list_links5) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -1922,7 +1922,7 @@ list_urls3 <- list_links7[splitting_urls == 3]
 list_urls4 <- list_links7[splitting_urls == 4]
 list_urls5 <- list_links7[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -2113,10 +2113,10 @@ scraped_text_missing <- tibble(web_url = list_links7) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -2147,7 +2147,7 @@ list_urls3 <- list_links9[splitting_urls == 3]
 list_urls4 <- list_links9[splitting_urls == 4]
 list_urls5 <- list_links9[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -2338,10 +2338,10 @@ scraped_text_missing <- tibble(web_url = list_links9) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -2361,16 +2361,16 @@ rm(list_urls0,
 
 ###### Step 4 - Retry failed 1 ######
 
-missing1 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200815194420.csv")
-missing2 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200815232632.csv")
-missing3 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816025007.csv")
-missing4 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816062032.csv")
-missing5 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816093453.csv")
-missing6 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816133951.csv")
-missing7 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816181542.csv")
-missing8 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200816222007.csv")
-missing9 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817090217.csv")
-missing10 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817123625.csv")
+missing1 <- readLines("/XXXXXXXXXX")
+missing2 <- readLines("/XXXXXXXXXX")
+missing3 <- readLines("/XXXXXXXXXX")
+missing4 <- readLines("/XXXXXXXXXX")
+missing5 <- readLines("/XXXXXXXXXX")
+missing6 <- readLines("/XXXXXXXXXX")
+missing7 <- readLines("/XXXXXXXXXX")
+missing8 <- readLines("/XXXXXXXXXX")
+missing9 <- readLines("/XXXXXXXXXX")
+missing10 <- readLines("/XXXXXXXXXX")
 
 missing_df <- tibble(web_link = c(missing1,missing2,missing3,missing4,missing5,
                                   missing6,missing7,missing8,missing9,missing10))
@@ -2391,9 +2391,9 @@ missing_df %<>%
   select(-flag)
 
 missing_df %<>%
-  mutate(web_link = str_replace(web_link, "www.philstar.com:8080", "www.philstar.com"),
-         web_link = str_replace(web_link, "news24.com/", "news24.com/news24/"),
-         web_link = str_replace(web_link, '"', ""))
+  mutate(web_link = str_replace(web_link, "/XXXXXXXXXX", "www.philstar.com"),
+         web_link = str_replace(web_link, "/XXXXXXXXXX", "news24.com/news24/"),
+         web_link = str_replace(web_link, '/XXXXXXXXXX"', ""))
 
 missing_df_n24 <- missing_df %>%
   filter(str_detect(web_link, "www.news24.com/")) %>%
@@ -2437,7 +2437,7 @@ list_urls3 <- list_links1[splitting_urls == 3]
 list_urls4 <- list_links1[splitting_urls == 4]
 list_urls5 <- list_links1[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -2628,10 +2628,10 @@ scraped_text_missing <- tibble(web_url = list_links1) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -2662,7 +2662,7 @@ list_urls3 <- list_links3[splitting_urls == 3]
 list_urls4 <- list_links3[splitting_urls == 4]
 list_urls5 <- list_links3[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -2853,10 +2853,10 @@ scraped_text_missing <- tibble(web_url = list_links3) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -2887,7 +2887,7 @@ list_urls3 <- list_links5[splitting_urls == 3]
 list_urls4 <- list_links5[splitting_urls == 4]
 list_urls5 <- list_links5[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -3078,10 +3078,10 @@ scraped_text_missing <- tibble(web_url = list_links5) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -3112,7 +3112,7 @@ list_urls3 <- list_links7[splitting_urls == 3]
 list_urls4 <- list_links7[splitting_urls == 4]
 list_urls5 <- list_links7[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -3303,10 +3303,10 @@ scraped_text_missing <- tibble(web_url = list_links7) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -3337,7 +3337,7 @@ list_urls3 <- list_links9[splitting_urls == 3]
 list_urls4 <- list_links9[splitting_urls == 4]
 list_urls5 <- list_links9[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -3528,10 +3528,10 @@ scraped_text_missing <- tibble(web_url = list_links9) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -3551,11 +3551,11 @@ rm(list_urls0,
 
 ###### Step 5 - Retry failed 2 ######
 
-missing1 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817144334.csv")
-missing2 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817160131.csv")
-missing3 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817171153.csv")
-missing4 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200817205409.csv")
-missing5 <- readLines("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_20200818002707.csv")
+missing1 <- readLines("/XXXXXXXXXX")
+missing2 <- readLines("/XXXXXXXXXX")
+missing3 <- readLines("/XXXXXXXXXX")
+missing4 <- readLines("/XXXXXXXXXX")
+missing5 <- readLines("/XXXXXXXXXX")
 
 missing_df <- tibble(web_link = c(missing1,missing2,missing3,missing4,missing5))
 rm(missing1,
@@ -3606,7 +3606,7 @@ list_urls3 <- list_links1[splitting_urls == 3]
 list_urls4 <- list_links1[splitting_urls == 4]
 list_urls5 <- list_links1[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 get_text_from_py <- function(url_link){
   
   withTimeout({
@@ -3781,10 +3781,10 @@ scraped_text_missing <- tibble(web_url = list_links1) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -3815,7 +3815,7 @@ list_urls3 <- list_links3[splitting_urls == 3]
 list_urls4 <- list_links3[splitting_urls == 4]
 list_urls5 <- list_links3[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 
 tic()
 scraped_text_safe1 <- future_map(list_urls1, get_text_from_py, .progress = TRUE)
@@ -3945,10 +3945,10 @@ scraped_text_missing <- tibble(web_url = list_links3) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -3979,7 +3979,7 @@ list_urls3 <- list_links5[splitting_urls == 3]
 list_urls4 <- list_links5[splitting_urls == 4]
 list_urls5 <- list_links5[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 
 tic()
 scraped_text_safe1 <- future_map(list_urls1, get_text_from_py, .progress = TRUE)
@@ -4109,10 +4109,10 @@ scraped_text_missing <- tibble(web_url = list_links5) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -4143,7 +4143,7 @@ list_urls3 <- list_links7[splitting_urls == 3]
 list_urls4 <- list_links7[splitting_urls == 4]
 list_urls5 <- list_links7[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 
 tic()
 scraped_text_safe1 <- future_map(list_urls1, get_text_from_py, .progress = TRUE)
@@ -4273,10 +4273,10 @@ scraped_text_missing <- tibble(web_url = list_links7) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -4307,7 +4307,7 @@ list_urls3 <- list_links9[splitting_urls == 3]
 list_urls4 <- list_links9[splitting_urls == 4]
 list_urls5 <- list_links9[splitting_urls == 5]
 
-setwd(dir = "/Users/danimadridmorales/Dropbox/Academe/Conferences&Papers/AfricaNews/")
+setwd(dir = "/XXXXXXXXXX")
 
 tic()
 scraped_text_safe1 <- future_map(list_urls1, get_text_from_py, .progress = TRUE)
@@ -4437,10 +4437,10 @@ scraped_text_missing <- tibble(web_url = list_links9) %>%
 
 timestamp <- str_replace_all(Sys.time(), ":|-| ", "")
 fwrite(scraped_text_safe, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/fulltext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 fwrite(scraped_text_missing, 
-       paste0("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/missingtext_",timestamp,".csv",sep = ""))
+       paste0("/XXXXXXXXXX",timestamp,".csv",sep = ""))
 
 rm(list_urls0,
    list_urls1,
@@ -4462,9 +4462,9 @@ rm(list_urls0,
 
 ###### Step 6 - Merge ######
  
-setwd("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/")
+setwd("/XXXXXXXXXX")
 
-full_gdelt <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/GDELT_filtered.csv") %>%
+full_gdelt <- fread("/XXXXXXXXXX/GDELT_filtered.csv") %>%
   filter(flag == TRUE) %>%
   mutate(web_gdeltdate = str_match(GKGRECORDID, "[0-9]{8}"),
          web_gdeltdate = parse_date_time(web_gdeltdate, orders = "Ymd")) %>%
@@ -4473,7 +4473,7 @@ full_gdelt <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/GDELT_filt
   distinct(web_url,.keep_all = TRUE)
 glimpse(full_gdelt)
 
-scraped_gdelt_data <- list.files("/Volumes/LaCieOrange/HumanitarianNewsData/_GDELT/", pattern = "fulltext") %>%
+scraped_gdelt_data <- list.files("/XXXXXXXXXX", pattern = "fulltext") %>%
   map(function(x){
     temp <- fread(x) %>%
       tibble() %>%
@@ -4518,7 +4518,7 @@ df$source <- str_replace(df$source, "https://www3.|http://www.|https://www.|http
 
 df %<>%
   mutate(data_source = "GDELT",
-         id = paste0("GDELT",seq(1,length(df$web_url)))) %>%
+         id = paste0("/XXXXXXXXXX",seq(1,length(df$web_url)))) %>%
   select(title,
          publish_date,
          source,
@@ -4528,7 +4528,7 @@ df %<>%
          id)
 
 fwrite(df, 
-       "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_GDELT.csv",
+       "/XXXXXXXXXX/_FinalData_GDELT.csv",
        quote = TRUE,
        sep = "|")
 

@@ -82,7 +82,7 @@ write.csv(news_api_stripped, file = "newsapi_connect.csv", row.names = F)
 #############
 ### GDELT ###
 #############
-setwd("~/Documents/Humanitrain Corpus RA - Kate & Dani/GDELT")
+setwd("/XXXXXXXXXX")
 dir()
 
 gdelt_df <- read.csv("gdelt_all.csv", stringsAsFactors = F)
@@ -119,11 +119,11 @@ all_connect <- all_connect[connect_unique_locs, ]
 
 ###### Merge all Nexis ######
 
-df_gdelt <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_GDELT.csv")
-df_google <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_GoogleAPI.csv")
-df_factiva <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Factiva.csv")
-df_nexis <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_NEXIS.csv")
-df_serpapi <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_serpAPI.csv")
+df_gdelt <- fread("/XXXXXXXXXX/_FinalData_GDELT.csv")
+df_google <- fread("/XXXXXXXXXX/_FinalData_GoogleAPI.csv")
+df_factiva <- fread("/XXXXXXXXXX/_FinalData_Factiva.csv")
+df_nexis <- fread("/XXXXXXXXXX/_FinalData_NEXIS.csv")
+df_serpapi <- fread("/XXXXXXXXXX/_FinalData_serpAPI.csv")
 
 df_gdelt$publish_date <- as.Date(df_gdelt$publish_date)
 df_gdelt$source.country <- " "
@@ -192,7 +192,7 @@ sources_data <- df %>%
   unique
 #write.xlsx(sources_data, "CountItemsPerSourceRaw.xlsx")
 
-setwd("/Volumes/LaCieOrange/HumanitarianNewsData/_FullCorpus/")
+setwd("/XXXXXXXXXX")
 
 remove_save_delete <- function(name.source,name.country){
   df_id <- df %>%
@@ -249,7 +249,7 @@ final_df1 <- map2(.x = sources1$source,
 df_final1 <- final_df1 %>%
   compact()%>%
   bind_rows()
-fwrite(df_final1, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full1.csv", quote = TRUE, sep = "|")
+fwrite(df_final1, "/XXXXXXXXXX/_FinalData_Full1.csv", quote = TRUE, sep = "|")
 
 rm(sources1,
    final_df1,
@@ -335,7 +335,7 @@ final_df2 <- map2(.x = sources2$source,
 df_final2 <- final_df2 %>%
   compact()%>%
   bind_rows()
-fwrite(df_final2, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full2.csv", quote = TRUE, sep = "|")
+fwrite(df_final2, "/XXXXXXXXXX/_FinalData_Full2.csv", quote = TRUE, sep = "|")
 
 rm(df_final2,
    sources2)
@@ -352,7 +352,7 @@ final_df3 <- map2(.x = sources3$source,
 df_final3 <- final_df3 %>%
   compact()%>%
   bind_rows()
-fwrite(df_final3, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full3.csv", quote = TRUE, sep = "|")
+fwrite(df_final3, "/XXXXXXXXXX/_FinalData_Full3.csv", quote = TRUE, sep = "|")
 
 rm(df_final3,
    sources3, 
@@ -436,7 +436,7 @@ final_df4 <- map2(.x = sources4$source,
 df_final4 <- final_df4 %>%
   compact()%>%
   bind_rows()
-fwrite(df_final4, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full4.csv", quote = TRUE, sep = "|")
+fwrite(df_final4, "/XXXXXXXXXX/_FinalData_Full4.csv", quote = TRUE, sep = "|")
 
 rm(df_final4,
    sources4, 
@@ -512,15 +512,15 @@ final_df5 <- map(available_dates, remove_save_delete_reuters)
 df_final5 <- final_df5 %>%
   compact()%>%
   bind_rows()
-fwrite(df_final5, "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full5.csv", quote = TRUE, sep = "|")
+fwrite(df_final5, "/XXXXXXXXXX/_FinalData_Full5.csv", quote = TRUE, sep = "|")
 
 
-df1 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full1.csv")
-df2 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full2.csv")
-df3 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full3.csv")
-df4 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full4.csv")
-df5 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full5.csv")
-df6 <- fread("/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData_Full_Awsat.csv")
+df1 <- fread("/XXXXXXXXXX/_FinalData_Full1.csv")
+df2 <- fread("/XXXXXXXXXX/_FinalData_Full2.csv")
+df3 <- fread("/XXXXXXXXXX/_FinalData_Full3.csv")
+df4 <- fread("/XXXXXXXXXX/_FinalData_Full4.csv")
+df5 <- fread("/XXXXXXXXXX/_FinalData_Full5.csv")
+df6 <- fread("/XXXXXXXXXX/_FinalData_Full_Awsat.csv")
 df5$ym <- NULL
 df6$ym <- NULL
 
@@ -531,7 +531,7 @@ df <- rbind(df1,
             df5,
             df6)
 
-saveRDS(object = df, file = "/Volumes/LaCieOrange/HumanitarianNewsData/_FinalData20210913.rds")
+saveRDS(object = df, file = "/XXXXXXXXXX/_FinalData20210913.rds")
 
 ###### Basic Plots ######
 df %>%
